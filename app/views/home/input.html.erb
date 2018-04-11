@@ -1,0 +1,51 @@
+<div class="lottonumb">
+    <h1 align="center">Pick up your own Lotto!</h1>
+    <img src="http://mblogthumb4.phinf.naver.net/20140524_131/claude_b_1400896911840c3WMV_JPEG/%C5%D0%B7%C1_1.JPG?type=w2" />
+    
+    <form action="/lotto" method="get">
+        <label> 당첨번호를 조회할 로또 회차는 ? : </label> <br>
+        <input name="l_number" type="text" placeholder="최신회차는 801회입니다."> <br>
+        <label> 번호를 자동으로 뽑으시겠습니까, 혹은 수동으로 뽑으시겠습니까?<br>
+        오직 '자동' 혹은 '수동' 값으로만 적어주세요.</label> <br>
+        <input name="choice" type="text"> <br>
+        <input type="submit" value="입력">
+    </form>
+<!--    <form name='buttons' method='get' action='/lotto'>-->
+<!--    <label> 당첨번호를 조회할 로또 회차는 ? : </label> <br>-->
+<!--      <input type='text' name='l_number' placeholder="최신회차는 801회입니다." /> <br>-->
+<!--      <label> 번호를 자동으로 뽑으시겠습니까, 혹은 수동으로 뽑으시겠습니까? </label> <br>-->
+<!--      <input type='button' value="수동" onclick='manual()' />-->
+<!--      <input type='submit' value="자동" />-->
+<!--    </form>-->
+    
+<!--    <script type="text/javascript">-->
+<!--  function manual() {-->
+<!--    var element = document.buttons.l_number.value;-->
+<!--    window.location.href=('/manual?txtval='+element);-->
+<!--  }-->
+<!--</script>-->
+<!--위 코드들은 JS 사용하여 text 입력값으로 '자동' '수동'을 받지 않고 바로 버튼처리로 갈 수 있는지 시험해본 코드. 
+파싱해오는 로또 회차를 801회로 고정해놓으면 문제없이 작동하지만 입력값으로 받을 경우 컨트롤러 코드 구조상
+lotto 액션을 거치지 않아 수동회차 입력값이 제대로 받아지지 않는다. 좀 더 고민해봐야할 문제-->
+</div>
+
+<div class="lottonumb">
+    <h1 align="center"> Lotto Record!</h1>
+        <% $lotto_datas.each do |x| %>
+        <div class="board">
+       회차 : <%= x.lotton %> <br>
+       방식 : <%= x.choice %> <br>
+       회차 로또 번호 : <%= x.lttoarr %> 보너스 번호 : <%= x.lbonum %> <br>
+       뽑은 번호 : <% if x.choice == "자동"%> <%= x.lttorandarr %> <br>
+       <% elsif x.choice == "수동" %> <%= x.lttorandarr %> <br> <% end %>
+       겹친 번호 : <% if x.lttogetarr.empty? %> <%= "겹친 번호 없음!" %> <br>
+       <% else %> <%= x.lttogetarr %> <br> <% end %>
+       결과 : <% if x.lttogetarr.length == 6 %> <%= "1등 입니다!." %> <br> <br>
+       <% elsif (x.lttogetarr.length == 5 && x.lttorandarr.include?(x.lbonum))%> 보너스 번호 <%= x.lbonum %>으로 인해 <%= "2등 입니다!" %> <br> <br>
+       <% elsif (x.lttogetarr.length == 5 && x.lttorandarr.include?(x.lbonum)==false)%> <%= "3등입니다!" %> <br> <br>
+       <% elsif (x.lttogetarr.length == 4) %> <%= "4등입니다!" %> <br> <br>
+       <% elsif (x.lttogetarr.length == 3) %> <%= "5등입니다!" %> <br> <br>
+       <% else %> <%= "꽝이었습니다." %> <br> <% end %>
+       </div>
+       <% end %>
+</div>

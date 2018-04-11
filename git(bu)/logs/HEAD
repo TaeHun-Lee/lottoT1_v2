@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 3d370f749f44dce54dbdc682b02a0f269a512583 EC2 Default User <ec2-user@ip-172-31-31-248.us-east-2.compute.internal> 1523380912 +0000	commit (initial): first commit
+3d370f749f44dce54dbdc682b02a0f269a512583 7a0356e122451d532f63f1ea54ce38ab3ff6eacc EC2 Default User <ec2-user@ip-172-31-31-248.us-east-2.compute.internal> 1523381410 +0000	commit: readme commit
+7a0356e122451d532f63f1ea54ce38ab3ff6eacc a20728c4baec6168cc342f15cdb1401b6fb76e8b EC2 Default User <ec2-user@ip-172-31-31-248.us-east-2.compute.internal> 1523438534 +0000	commit: Second commit
+a20728c4baec6168cc342f15cdb1401b6fb76e8b 5ab3eb4f2431fef85fdbca876fda53475257187d EC2 Default User <ec2-user@ip-172-31-31-248.us-east-2.compute.internal> 1523439008 +0000	commit: Sec commit

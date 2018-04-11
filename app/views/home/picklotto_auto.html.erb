@@ -1,0 +1,27 @@
+<div class="lottonumb">
+    <h1 align="center">Pick up your own Lotto!</h1>
+    <% if (@get_arr.length==6) %> <img src="https://media1.giphy.com/media/3o7bu57lYhUEFiYDSM/giphy.gif" />
+    <% elsif (@get_arr.length==5 && @manual_arr.include?(@bonus_num))%>
+    <img src="https://media0.giphy.com/media/2XskdWPYwqv8EQxDthm/giphy.gif" />
+    <% elsif (@get_arr.length==5 && @manual_arr.include?(@bonus_num)==false)%>
+    <img src="https://media1.tenor.com/images/1df2e0bc760f4c0e840b08981e82f5e2/tenor.gif?itemid=5637142" />
+    <% elsif (@get_arr.length==4)%>
+    <img src="https://media1.tenor.com/images/28cdb01a4315fa9c8a448aa271bf45d2/tenor.gif?itemid=5645696" />
+    <% elsif (@get_arr.length==3)%>
+    <img src="https://38.media.tumblr.com/d911c8d3c74279c7c530d74aeede4283/tumblr_nns72uDNwg1rlheeoo4_r1_540.gif" />
+    <% else %>
+    <img src="http://gifimage.net/wp-content/uploads/2017/08/skeptical-gif-12.gif" />
+    <% end %>
+    
+    <% if @real_lotto_num.empty? %> <center> 아직 진행되지 않은 회차입니다. </center><br>
+    <% else %> <center> <%= @ll %>회차 로또 넘버 : <%= @real_lotto_num %> 보너스 넘버 : <%= @bonus_num %></center> <% end %>
+    <center>당신의 행운의 넘버는 : <%= @rand_arr %></center> <br>
+    <% if @get_arr.empty? %> <center>겹치는 번호는 없습니다. </center><br>
+    <% else %> <center>겹치는 번호는 : <%= @get_arr%> 입니다. </center> <% end %>
+    <% if (@get_arr.length==6) %> <center> 축하합니다, 1등입네다!</center>
+    <% elsif (@get_arr.length==5 && @rand_arr.include?(@bonus_num))%> <center> 축하합니다, 보너스 번호 [<%= @bonus_num%>](으)로 인해 2등입네다! </center>
+    <% elsif (@get_arr.length==5 && @rand_arr.include?(@bonus_num)==false)%> <center> 축하합니다, 3등입네다! </center>
+    <% elsif (@get_arr.length==4)%> <center> 애매하지만, 4등입네다! </center>
+    <% elsif (@get_arr.length==3)%> <center> 적어도 5등입네다!</center>
+    <% else %> <center> 아쉽지만, 꽝입네다! </center> <% end %>
+</div>
