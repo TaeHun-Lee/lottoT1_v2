@@ -40,11 +40,11 @@ lotto 액션을 거치지 않아 수동회차 입력값이 제대로 받아지�
        <% elsif x.choice == "수동" %> <%= x.lttorandarr %> <br> <% end %>
        겹친 번호 : <% if x.lttogetarr.empty? %> <%= "겹친 번호 없음!" %> <br>
        <% else %> <%= x.lttogetarr %> <br> <% end %>
-       결과 : <% if x.lttogetarr.length == 6 %> <%= "1등 입니다!." %> <br> <br>
-       <% elsif (x.lttogetarr.length == 5 && x.lttorandarr.include?(x.lbonum))%> 보너스 번호 <%= x.lbonum %>으로 인해 <%= "2등 입니다!" %> <br> <br>
-       <% elsif (x.lttogetarr.length == 5 && x.lttorandarr.include?(x.lbonum)==false)%> <%= "3등입니다!" %> <br> <br>
-       <% elsif (x.lttogetarr.length == 4) %> <%= "4등입니다!" %> <br> <br>
-       <% elsif (x.lttogetarr.length == 3) %> <%= "5등입니다!" %> <br> <br>
+       결과 : <% if x.lttogetarr.length == 6 %> <%= "1등 입니다!." %> <br>
+       <% elsif (x.lttogetarr.length == 5 && x.lttorandarr.include?(x.lbonum))%> 보너스 번호 <%= x.lbonum %>으로 인해 <%= "2등 입니다!" %> <br>
+       <% elsif (x.lttogetarr.length == 5 && x.lttorandarr.include?(x.lbonum)==false)%> <%= "3등입니다!" %> <br>
+       <% elsif (x.lttogetarr.length == 4) %> <%= "4등입니다!" %> <br>
+       <% elsif (x.lttogetarr.length == 3) %> <%= "5등입니다!" %> <br>
        <% else %> <%= "꽝이었습니다." %> <br> <% end %>
        </div>
        <% end %>
