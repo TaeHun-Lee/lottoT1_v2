@@ -49,3 +49,39 @@ lotto 액션을 거치지 않아 수동회차 입력값이 제대로 받아지�
        </div>
        <% end %>
 </div>
+
+<div class="lottonumb">
+    <h1 align="center"> Your Statistics! </h1>
+    <div class="board_st">
+        총 뽑은 횟수 : <%= Lotto.count %> <br> <br>
+        <% @at_least = 0.000 %>
+        <% $lotto_datas.each do |x| %>
+        <% if x.lttogetarr.length >= 1 %>
+        <% @at_least += 1.000 %>
+        <% end %>
+        <% end %>
+        최소한 1개 이상의 번호가 겹쳤던 횟수 : <%= @at_least.round(0) %> <br>
+        최소한 1개 이상의 번호가 겹쳤던 횟수 백분율 : <% @at_least_r = @at_least / Lotto.count %> <% @at_least_rr = @at_least_r * 100 %> <%= @at_least_rr.round(0) %>% <br> <br>
+        <% @boom = 0.000 %>
+        <% $lotto_datas.each do |x| %>
+        <% if x.lttogetarr.length >= 3 %>
+        <% @boom += 1.000 %>
+        <% end %>
+        <% end %>
+        <% if @boom == 0.000 %>
+        최소 꽝을 면했던 횟수 : 0 번 <br>
+        최소 꽝을 면했던 횟수 백분율 : 0% <br> <br>
+        <% else %>
+        최소 꽝을 면했던 횟수 : <%= @boom.round(0) %> <br>
+        최소 꽝을 면했던 횟수 백분율 : <% @boom_r = @boom / Lotto.count %> <% @boom_rr = @boom_r * 100 %> <%= @boom_rr.round(0) %>% <br> <br>
+        <% end %>
+        <% @error = 0.000 %>
+        <% $lotto_datas.each do |x| %>
+        <% if x.lttogetarr.length < 3 %>
+        <% @error += 1.000 %>
+        <% end %>
+        <% end %>
+        꽝이었던 횟수 : <%= @error.round(0) %> <br>
+        꽝이었던 횟수 백분율 : <% @error_r = @error / Lotto.count %> <% @error_rr = @error_r * 100 %> <%= @error_rr.round(0) %>% <br> <br>
+    </div>
+</div>
